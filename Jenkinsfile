@@ -21,7 +21,7 @@ pipeline {
         stage('resolve-catalogue-endpoint') {
             steps {
                 script {
-                    withAWS(credentials: 'aws-creds', region: 'us-east-1') {
+                    withAWS(credentials: 'aws_creds', region: 'us-east-1') {
                         sh "aws eks update-kubeconfig --name roboshop --region us-east-1"
                         def podIp = sh(
                             script: "kubectl get pods -n ${params.NAMESPACE} -l project=roboshop,tier=backend,component=catalogue -o jsonpath='{.items[0].status.podIP}'",
