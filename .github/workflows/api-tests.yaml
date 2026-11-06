@@ -20,9 +20,7 @@ on:
 
 jobs:
   api-tests:
-    runs-on:
-      group: roboshop
-      labels: nodejs-test
+    runs-on: [self-hosted, Linux, X64, nodejs-test]
     steps:
       - name: checkout code
         uses: actions/checkout@v4
